@@ -5,6 +5,7 @@ class CostMap():
 
     def __init__(self,filename):
         self.LETHAL_OBSTACLE=255
+        self.INSCRIBED_INFLATED_OBSTACLE=254
         self.map_arr=self.compute_costmap(read_pgm(filename))
 
     def compute_cost(self,distance):
