@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 2.8)
+project( OccMap )
+find_package( OpenCV REQUIRED )
+add_executable( read_map read_map.cpp )
+target_link_libraries( read_map ${OpenCV_LIBS} )

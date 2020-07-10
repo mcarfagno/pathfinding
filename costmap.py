@@ -1,4 +1,4 @@
-import re
+ import re
 import numpy
 
 class CostMap():
@@ -29,7 +29,7 @@ class CostMap():
             factor = numpy.exp(-1.0 * weight_ * (euclidean_distance - inscribed_radius_));
             cost = ((INSCRIBED_INFLATED_OBSTACLE - 1) * factor);
 
-        return cost
+        return int(cost)
 
     def compute_costmap(self,occ_map):
         """
