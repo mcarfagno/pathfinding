@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/marcello/Desktop/a*_ws/breadth_first_search.cpp
+unordered_map
+-
+queue
+-
+
+/home/marcello/Desktop/a*_ws/grid_with_weights.cpp
+functional
+-
+unordered_set
+-
+vector
+-
+queue
+-
+cmath
+-
+
+/home/marcello/Desktop/a*_ws/test.cpp
+vector
+-
+iostream
+-
+grid_with_weights.cpp
+/home/marcello/Desktop/a*_ws/grid_with_weights.cpp
+breadth_first_search.cpp
+/home/marcello/Desktop/a*_ws/breadth_first_search.cpp
+

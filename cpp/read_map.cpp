@@ -7,8 +7,8 @@
 
 using namespace cv;
 
-// load abd view map file
-void open_pgn(char* location)
+/* Fills graph with freespace data from .pgm map */
+void open_pgn(SquareGrid& grid, char* location)
 {
     Mat occ_map;
     bool invert_values=true;
@@ -16,15 +16,15 @@ void open_pgn(char* location)
     // read binary 8UC1
     Mat input_img = imread(location, IMREAD_UNCHANGED);
 
-    // covert 0,255 to 0,1 occupancy range
-    input_img.convertTo(occ_map,CV_32FC1, 1.0/255.0);
-
     // check if data has to be inverted:
     // occ ~1 and free ~0
     if(invert_values == true)
     {
-      occ_map = 1-occ_map;
+      input_img = 255-input_img;
     }
+
+    // covert 0,255 to 0,1 occupancy range
+    input_img.convertTo(occ_map,CV_32FC1, 1.0/255.0);
 
     double min, max;
     cv::minMaxLoc(occ_map, &min, &max);
@@ -44,7 +44,6 @@ void open_pgn(char* location)
     // todo freespace to graph
     std::cout << "Converting map to graph" << std::endl;
 
-    SquareGrid grid;
     float freespace_tresh = 0.196;
 
     for(int i=0; i<occ_map.rows; i++)
@@ -58,15 +57,27 @@ void open_pgn(char* location)
       }
     }
 
-    std::cout << grid.ALL_LOCATIONS.size() << std::endl;
-
+    //std::cout << grid.ALL_LOCATIONS.size() << std::endl;
     std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
     std::cout << "Elapsed = " << std::chrono::duration_cast<std::chrono::milliseconds>(end - begin).count() << "[ms]" << std::endl;
 
-    //return grid
+    // Perform the distance transform algorithm
+    Mat dist;
+    input_img = input_img.setTo(255, input_img > 1); // set anything not free to 255
+    input_img = 255 - input_img; // revert to occ ~0 and free ~255
+    distanceTransform(input_img, dist, DIST_L2, 3);
+    // Normalize the distance image for range = {0.0, 1.0}
+    // so we can visualize and threshold it
+    normalize(dist, dist, 0, 1.0, NORM_MINMAX);
+    imshow("Distance Transform Image", dist);
+    waitKey();
+
+    return;
 }
 
 int main (int argc, char **argv)
 {
-  open_pgn("./test_map.pgm");
+  SquareGrid my_grid;
+  open_pgn(my_grid, "./maps/test_map.pgm");
+  std::cout << my_grid.ALL_LOCATIONS.size() << std::endl;
 }

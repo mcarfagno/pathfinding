@@ -1,6 +1,8 @@
 #include <functional>
 #include <unordered_set>
 #include <vector>
+#include <queue>
+#include <cmath>
 
 struct GridLocation
 {
@@ -42,7 +44,7 @@ bool operator != (const GridLocation &id1, const GridLocation &id2)
      return true;
 }
 
-struct SquareGrid
+struct GridWithWeights
 {
     /* all locations in the grid-> GRAPH NODES*/
     // std::vector<GridLocation> ALL_LOCATION;
@@ -79,4 +81,41 @@ struct SquareGrid
 
       return results;
     }
+
+    /*cost of moving from one cell to the other -> GRAPH EDGES COST*/
+    double cost(GridLocation from_node, GridLocation to_node) const
+    {
+      return std::sqrt(std::pow(from_node.x-to_node.x,2) + std::pow(from_node.y-to_node.y,2)) ;
+    }
+};
+
+/* Wrapper class for std::priority_queue */
+template<typename T, typename priority_t>
+struct PriorityQueue
+{
+  typedef std::pair<priority_t, T> PQElement;
+
+  /*Using greater here means that lower values are considered of higher priority
+   and come out of the priority queue earlier.
+   By default less is used, and higher values are higher priority.*/
+  std::priority_queue<PQElement, std::vector<PQElement>, std::greater<PQElement>> elements;
+
+  inline bool empty() const
+  {
+    return elements.empty();
+  }
+
+  inline void put(T item, priority_t priority)
+  {
+    elements.emplace(priority, item);
+  }
+
+  T get()
+  {
+    /* Get the higher priority item: the head of the queue.
+    First is priority while second is the actual object*/
+    T best_item = elements.top().second;
+    elements.pop();
+    return best_item;
+  }
 };
