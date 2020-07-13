@@ -6,7 +6,7 @@
 
 struct GridLocation
 {
-  int x, y;
+  int x, y, w;
 };
 
 /* implement hash function so we can put GridLocation into an unordered_set */
@@ -83,10 +83,15 @@ struct GridWithWeights
     }
 
     /*cost of moving from one cell to the other -> GRAPH EDGES COST*/
+    // double cost(GridLocation from_node, GridLocation to_node) const
+    // {
+    //   return std::sqrt(std::pow(from_node.x-to_node.x,2) + std::pow(from_node.y-to_node.y,2)) ;
+    // }
     double cost(GridLocation from_node, GridLocation to_node) const
     {
-      return std::sqrt(std::pow(from_node.x-to_node.x,2) + std::pow(from_node.y-to_node.y,2)) ;
+      return to_node.w ;
     }
+
 };
 
 /* Wrapper class for std::priority_queue */

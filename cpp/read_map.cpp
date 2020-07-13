@@ -8,7 +8,7 @@
 using namespace cv;
 
 /* Fills graph with freespace data from .pgm map */
-void open_pgn(SquareGrid& grid, char* location)
+void open_pgn(SquareGrid& grid, const char* location)
 {
     Mat occ_map;
     bool invert_values=true;
@@ -61,13 +61,14 @@ void open_pgn(SquareGrid& grid, char* location)
     std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
     std::cout << "Elapsed = " << std::chrono::duration_cast<std::chrono::milliseconds>(end - begin).count() << "[ms]" << std::endl;
 
+    /*COMPUTE CELL "COST" BY computing distance from walls*/
     // Perform the distance transform algorithm
     Mat dist;
     input_img = input_img.setTo(255, input_img > 1); // set anything not free to 255
     input_img = 255 - input_img; // revert to occ ~0 and free ~255
     distanceTransform(input_img, dist, DIST_L2, 3);
     // Normalize the distance image for range = {0.0, 1.0}
-    // so we can visualize and threshold it
+    // so we can visualize it
     normalize(dist, dist, 0, 1.0, NORM_MINMAX);
     imshow("Distance Transform Image", dist);
     waitKey();
