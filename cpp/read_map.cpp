@@ -14,9 +14,9 @@ const unsigned char INSCRIBED_INFLATED_OBSTACLE = 254;
 // https://github.com/ros-planning/navigation/blob/jade-devel/costmap_2d/include/costmap_2d/inflation_layer.h#L113
 inline unsigned char computeCost(double distance)
 {
-  float inscribed_radius_ = 1.0; //robot radius
-  float resolution_ = 0.5; //map resolution
-  float weight_ = 1.;
+  float inscribed_radius_ = 0.25; //robot radius
+  float resolution_ = 0.05; //map resolution
+  float weight_ = 5.;
 
   unsigned char cost = 0;
   if (distance == 0)
@@ -60,7 +60,7 @@ Mat compute_costmap(Mat& input_img)
 
   applyColorMap(computed_costmap, computed_costmap, COLORMAP_COOL);
   return computed_costmap;
-  
+
   // // Normalize the distance image for range = {0.0, 1.0}
   // // so we can visualize it
   // normalize(dist, dist, 0, 1.0, NORM_MINMAX);
@@ -121,14 +121,14 @@ void open_pgn(SquareGrid& grid, const char* location)
       }
     }
 
-    Mat dist;
-    dist = compute_costmap(input_img);
+    Mat cmap;
+    cmap = compute_costmap(input_img);
 
     //std::cout << grid.ALL_LOCATIONS.size() << std::endl;
     std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
     std::cout << "Elapsed = " << std::chrono::duration_cast<std::chrono::milliseconds>(end - begin).count() << "[ms]" << std::endl;
 
-    imshow("Distance Transform Image", dist);
+    imshow("CostMap Image", cmap);
     waitKey();
 
     return;
