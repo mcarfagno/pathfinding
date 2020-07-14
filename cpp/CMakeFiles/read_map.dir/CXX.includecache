@@ -23,6 +23,8 @@ opencv2/imgproc.hpp
 -
 chrono
 -
+cstring
+-
 grid.cpp
 /home/marcello/Desktop/a*_ws/grid.cpp
 
