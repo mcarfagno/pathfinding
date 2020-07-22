@@ -57,27 +57,27 @@ include CMakeFiles/read_map.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/read_map.dir/flags.make
 
-CMakeFiles/read_map.dir/read_map.cpp.o: CMakeFiles/read_map.dir/flags.make
-CMakeFiles/read_map.dir/read_map.cpp.o: read_map.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/marcello/Desktop/a*_ws/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/read_map.dir/read_map.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/read_map.dir/read_map.cpp.o -c "/home/marcello/Desktop/a*_ws/read_map.cpp"
+CMakeFiles/read_map.dir/read_costmap.cpp.o: CMakeFiles/read_map.dir/flags.make
+CMakeFiles/read_map.dir/read_costmap.cpp.o: read_costmap.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/marcello/Desktop/a*_ws/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/read_map.dir/read_costmap.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/read_map.dir/read_costmap.cpp.o -c "/home/marcello/Desktop/a*_ws/read_costmap.cpp"
 
-CMakeFiles/read_map.dir/read_map.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/read_map.dir/read_map.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/marcello/Desktop/a*_ws/read_map.cpp" > CMakeFiles/read_map.dir/read_map.cpp.i
+CMakeFiles/read_map.dir/read_costmap.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/read_map.dir/read_costmap.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/marcello/Desktop/a*_ws/read_costmap.cpp" > CMakeFiles/read_map.dir/read_costmap.cpp.i
 
-CMakeFiles/read_map.dir/read_map.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/read_map.dir/read_map.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/marcello/Desktop/a*_ws/read_map.cpp" -o CMakeFiles/read_map.dir/read_map.cpp.s
+CMakeFiles/read_map.dir/read_costmap.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/read_map.dir/read_costmap.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/marcello/Desktop/a*_ws/read_costmap.cpp" -o CMakeFiles/read_map.dir/read_costmap.cpp.s
 
 # Object files for target read_map
 read_map_OBJECTS = \
-"CMakeFiles/read_map.dir/read_map.cpp.o"
+"CMakeFiles/read_map.dir/read_costmap.cpp.o"
 
 # External object files for target read_map
 read_map_EXTERNAL_OBJECTS =
 
-read_map: CMakeFiles/read_map.dir/read_map.cpp.o
+read_map: CMakeFiles/read_map.dir/read_costmap.cpp.o
 read_map: CMakeFiles/read_map.dir/build.make
 read_map: /usr/lib/x86_64-linux-gnu/libopencv_stitching.so.4.2.0
 read_map: /usr/lib/x86_64-linux-gnu/libopencv_aruco.so.4.2.0

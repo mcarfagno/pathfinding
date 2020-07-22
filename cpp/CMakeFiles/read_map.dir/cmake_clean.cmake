@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/read_map.dir/read_map.cpp.o"
+  "CMakeFiles/read_map.dir/read_costmap.cpp.o"
   "read_map"
   "read_map.pdb"
 )

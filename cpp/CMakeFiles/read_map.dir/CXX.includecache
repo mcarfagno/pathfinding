@@ -6,15 +6,19 @@
 
 #IncludeRegexTransform: 
 
-/home/marcello/Desktop/a*_ws/grid.cpp
+/home/marcello/Desktop/a*_ws/grid_with_weights.cpp
 functional
 -
 unordered_set
 -
 vector
 -
+queue
+-
+cmath
+-
 
-/home/marcello/Desktop/a*_ws/read_map.cpp
+/home/marcello/Desktop/a*_ws/read_costmap.cpp
 opencv2/opencv.hpp
 -
 iostream
@@ -25,8 +29,8 @@ chrono
 -
 cstring
 -
-grid.cpp
-/home/marcello/Desktop/a*_ws/grid.cpp
+grid_with_weights.cpp
+/home/marcello/Desktop/a*_ws/grid_with_weights.cpp
 
 /usr/include/opencv4/opencv2/calib3d.hpp
 opencv2/core.hpp

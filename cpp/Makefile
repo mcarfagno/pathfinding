@@ -136,32 +136,32 @@ read_map/fast:
 	$(MAKE) -f CMakeFiles/read_map.dir/build.make CMakeFiles/read_map.dir/build
 .PHONY : read_map/fast
 
-read_map.o: read_map.cpp.o
+read_costmap.o: read_costmap.cpp.o
 
-.PHONY : read_map.o
+.PHONY : read_costmap.o
 
 # target to build an object file
-read_map.cpp.o:
-	$(MAKE) -f CMakeFiles/read_map.dir/build.make CMakeFiles/read_map.dir/read_map.cpp.o
-.PHONY : read_map.cpp.o
+read_costmap.cpp.o:
+	$(MAKE) -f CMakeFiles/read_map.dir/build.make CMakeFiles/read_map.dir/read_costmap.cpp.o
+.PHONY : read_costmap.cpp.o
 
-read_map.i: read_map.cpp.i
+read_costmap.i: read_costmap.cpp.i
 
-.PHONY : read_map.i
+.PHONY : read_costmap.i
 
 # target to preprocess a source file
-read_map.cpp.i:
-	$(MAKE) -f CMakeFiles/read_map.dir/build.make CMakeFiles/read_map.dir/read_map.cpp.i
-.PHONY : read_map.cpp.i
+read_costmap.cpp.i:
+	$(MAKE) -f CMakeFiles/read_map.dir/build.make CMakeFiles/read_map.dir/read_costmap.cpp.i
+.PHONY : read_costmap.cpp.i
 
-read_map.s: read_map.cpp.s
+read_costmap.s: read_costmap.cpp.s
 
-.PHONY : read_map.s
+.PHONY : read_costmap.s
 
 # target to generate assembly for a file
-read_map.cpp.s:
-	$(MAKE) -f CMakeFiles/read_map.dir/build.make CMakeFiles/read_map.dir/read_map.cpp.s
-.PHONY : read_map.cpp.s
+read_costmap.cpp.s:
+	$(MAKE) -f CMakeFiles/read_map.dir/build.make CMakeFiles/read_map.dir/read_costmap.cpp.s
+.PHONY : read_costmap.cpp.s
 
 test.o: test.cpp.o
 
@@ -200,9 +200,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... test_grid"
 	@echo "... read_map"
-	@echo "... read_map.o"
-	@echo "... read_map.i"
-	@echo "... read_map.s"
+	@echo "... read_costmap.o"
+	@echo "... read_costmap.i"
+	@echo "... read_costmap.s"
 	@echo "... test.o"
 	@echo "... test.i"
 	@echo "... test.s"
