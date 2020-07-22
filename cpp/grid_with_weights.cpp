@@ -35,6 +35,15 @@ bool operator == (const GridLocation &id1, const GridLocation &id2)
      return false;
 }
 
+/* implement equal function so we can find GridLocation into an unordered_set */
+bool operator < (const GridLocation &id1, const GridLocation &id2)
+{
+   if( (id1.w < id2.w) )
+     return true;
+   else
+     return false;
+}
+
 /* implement not equal function so we can find GridLocation into an unordered_set */
 bool operator != (const GridLocation &id1, const GridLocation &id2)
 {
@@ -89,38 +98,7 @@ struct GridWithWeights
     // }
     double cost(GridLocation from_node, GridLocation to_node) const
     {
-      return to_node.w ;
+      return 1.0*to_node.w ;
     }
 
-};
-
-/* Wrapper class for std::priority_queue */
-template<typename T, typename priority_t>
-struct PriorityQueue
-{
-  typedef std::pair<priority_t, T> PQElement;
-
-  /*Using greater here means that lower values are considered of higher priority
-   and come out of the priority queue earlier.
-   By default less is used, and higher values are higher priority.*/
-  std::priority_queue<PQElement, std::vector<PQElement>, std::greater<PQElement>> elements;
-
-  inline bool empty() const
-  {
-    return elements.empty();
-  }
-
-  inline void put(T item, priority_t priority)
-  {
-    elements.emplace(priority, item);
-  }
-
-  T get()
-  {
-    /* Get the higher priority item: the head of the queue.
-    First is priority while second is the actual object*/
-    T best_item = elements.top().second;
-    elements.pop();
-    return best_item;
-  }
 };

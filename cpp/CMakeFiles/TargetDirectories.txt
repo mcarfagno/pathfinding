@@ -1,4 +1,4 @@
-/home/marcello/Desktop/a*_ws/CMakeFiles/edit_cache.dir
 /home/marcello/Desktop/a*_ws/CMakeFiles/rebuild_cache.dir
-/home/marcello/Desktop/a*_ws/CMakeFiles/test_grid.dir
+/home/marcello/Desktop/a*_ws/CMakeFiles/edit_cache.dir
+/home/marcello/Desktop/a*_ws/CMakeFiles/test_pathfinding.dir
 /home/marcello/Desktop/a*_ws/CMakeFiles/read_map.dir

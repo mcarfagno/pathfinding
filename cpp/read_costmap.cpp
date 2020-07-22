@@ -60,21 +60,20 @@ Mat compute_costmap(Mat& input_img)
   std::cout << min << " " << max << std::endl;
 
   // make a color version for printing
-  Mat coulored_costmap;
-  applyColorMap(computed_costmap, coulored_costmap, COLORMAP_COOL);
-  imshow("CostMap Image", coulored_costmap);
-  waitKey();
+  //Mat coulored_costmap;
+  //applyColorMap(computed_costmap, coulored_costmap, COLORMAP_COOL);
+  // imshow("CostMap Image", coulored_costmap);
+  // waitKey();
   //imwrite( "images/costmap.jpg", coulored_costmap);
-  return computed_costmap;
+  //return computed_costmap;
 
   // // Normalize the distance image for range = {0.0, 1.0}
   // // so we can visualize it
   // normalize(dist, dist, 0, 1.0, NORM_MINMAX);
   // dist.convertTo(dist,CV_8UC1, 255.0);
-  // dist = 255-dist; // revert to occ ~255 and free ~0
-  //
-  // applyColorMap(dist, dist, COLORMAP_COOL);
-  // return dist;
+  // imwrite( "images/distance_trasform_minmax.jpg", dist);
+
+  return computed_costmap;
 }
 
 /* Fills graph with freespace data from .pgm map */
@@ -106,8 +105,8 @@ void open_pgn(GridWithWeights& grid, const char* location)
     //free space value < 0.196 -->OK
     std::cout << (float)occ_map.at<float>(300,300) << std::endl;
 
-    imshow("Occupancy Map", occ_map);
-    waitKey();
+    // imshow("Occupancy Map", occ_map);
+    // waitKey();
 
     //std::chrono::steady_clock::time_point begin = std::chrono::steady_clock::now();
 
@@ -140,9 +139,9 @@ void open_pgn(GridWithWeights& grid, const char* location)
     return;
 }
 
-int main (int argc, char **argv)
-{
-  GridWithWeights my_grid;
-  open_pgn(my_grid, "./maps/test_map.pgm");
-  std::cout << my_grid.ALL_LOCATIONS.size() << std::endl;
-}
+// int main (int argc, char **argv)
+// {
+//   GridWithWeights my_grid;
+//   open_pgn(my_grid, "./maps/test_map.pgm");
+//   std::cout << my_grid.ALL_LOCATIONS.size() << std::endl;
+// }

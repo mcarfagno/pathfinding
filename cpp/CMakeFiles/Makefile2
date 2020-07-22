@@ -53,7 +53,7 @@ CMAKE_BINARY_DIR = "/home/marcello/Desktop/a*_ws"
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/test_grid.dir/all
+all: CMakeFiles/test_pathfinding.dir/all
 all: CMakeFiles/read_map.dir/all
 
 .PHONY : all
@@ -64,37 +64,37 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/test_grid.dir/clean
+clean: CMakeFiles/test_pathfinding.dir/clean
 clean: CMakeFiles/read_map.dir/clean
 
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/test_grid.dir
+# Target rules for target CMakeFiles/test_pathfinding.dir
 
 # All Build rule for target.
-CMakeFiles/test_grid.dir/all:
-	$(MAKE) -f CMakeFiles/test_grid.dir/build.make CMakeFiles/test_grid.dir/depend
-	$(MAKE) -f CMakeFiles/test_grid.dir/build.make CMakeFiles/test_grid.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/home/marcello/Desktop/a*_ws/CMakeFiles" --progress-num=3,4 "Built target test_grid"
-.PHONY : CMakeFiles/test_grid.dir/all
+CMakeFiles/test_pathfinding.dir/all:
+	$(MAKE) -f CMakeFiles/test_pathfinding.dir/build.make CMakeFiles/test_pathfinding.dir/depend
+	$(MAKE) -f CMakeFiles/test_pathfinding.dir/build.make CMakeFiles/test_pathfinding.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/home/marcello/Desktop/a*_ws/CMakeFiles" --progress-num=3,4 "Built target test_pathfinding"
+.PHONY : CMakeFiles/test_pathfinding.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/test_grid.dir/rule: cmake_check_build_system
+CMakeFiles/test_pathfinding.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start "/home/marcello/Desktop/a*_ws/CMakeFiles" 2
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/test_grid.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/test_pathfinding.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/home/marcello/Desktop/a*_ws/CMakeFiles" 0
-.PHONY : CMakeFiles/test_grid.dir/rule
+.PHONY : CMakeFiles/test_pathfinding.dir/rule
 
 # Convenience name for target.
-test_grid: CMakeFiles/test_grid.dir/rule
+test_pathfinding: CMakeFiles/test_pathfinding.dir/rule
 
-.PHONY : test_grid
+.PHONY : test_pathfinding
 
 # clean rule for target.
-CMakeFiles/test_grid.dir/clean:
-	$(MAKE) -f CMakeFiles/test_grid.dir/build.make CMakeFiles/test_grid.dir/clean
-.PHONY : CMakeFiles/test_grid.dir/clean
+CMakeFiles/test_pathfinding.dir/clean:
+	$(MAKE) -f CMakeFiles/test_pathfinding.dir/build.make CMakeFiles/test_pathfinding.dir/clean
+.PHONY : CMakeFiles/test_pathfinding.dir/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/read_map.dir

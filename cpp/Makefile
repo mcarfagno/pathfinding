@@ -56,17 +56,6 @@ CMAKE_BINARY_DIR = "/home/marcello/Desktop/a*_ws"
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
-
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -77,6 +66,17 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
+
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -111,17 +111,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named test_grid
+# Target rules for targets named test_pathfinding
 
 # Build rule for target.
-test_grid: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test_grid
-.PHONY : test_grid
+test_pathfinding: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test_pathfinding
+.PHONY : test_pathfinding
 
 # fast build rule for target.
-test_grid/fast:
-	$(MAKE) -f CMakeFiles/test_grid.dir/build.make CMakeFiles/test_grid.dir/build
-.PHONY : test_grid/fast
+test_pathfinding/fast:
+	$(MAKE) -f CMakeFiles/test_pathfinding.dir/build.make CMakeFiles/test_pathfinding.dir/build
+.PHONY : test_pathfinding/fast
 
 #=============================================================================
 # Target rules for targets named read_map
@@ -135,6 +135,33 @@ read_map: cmake_check_build_system
 read_map/fast:
 	$(MAKE) -f CMakeFiles/read_map.dir/build.make CMakeFiles/read_map.dir/build
 .PHONY : read_map/fast
+
+astar_test.o: astar_test.cpp.o
+
+.PHONY : astar_test.o
+
+# target to build an object file
+astar_test.cpp.o:
+	$(MAKE) -f CMakeFiles/test_pathfinding.dir/build.make CMakeFiles/test_pathfinding.dir/astar_test.cpp.o
+.PHONY : astar_test.cpp.o
+
+astar_test.i: astar_test.cpp.i
+
+.PHONY : astar_test.i
+
+# target to preprocess a source file
+astar_test.cpp.i:
+	$(MAKE) -f CMakeFiles/test_pathfinding.dir/build.make CMakeFiles/test_pathfinding.dir/astar_test.cpp.i
+.PHONY : astar_test.cpp.i
+
+astar_test.s: astar_test.cpp.s
+
+.PHONY : astar_test.s
+
+# target to generate assembly for a file
+astar_test.cpp.s:
+	$(MAKE) -f CMakeFiles/test_pathfinding.dir/build.make CMakeFiles/test_pathfinding.dir/astar_test.cpp.s
+.PHONY : astar_test.cpp.s
 
 read_costmap.o: read_costmap.cpp.o
 
@@ -163,49 +190,22 @@ read_costmap.cpp.s:
 	$(MAKE) -f CMakeFiles/read_map.dir/build.make CMakeFiles/read_map.dir/read_costmap.cpp.s
 .PHONY : read_costmap.cpp.s
 
-test.o: test.cpp.o
-
-.PHONY : test.o
-
-# target to build an object file
-test.cpp.o:
-	$(MAKE) -f CMakeFiles/test_grid.dir/build.make CMakeFiles/test_grid.dir/test.cpp.o
-.PHONY : test.cpp.o
-
-test.i: test.cpp.i
-
-.PHONY : test.i
-
-# target to preprocess a source file
-test.cpp.i:
-	$(MAKE) -f CMakeFiles/test_grid.dir/build.make CMakeFiles/test_grid.dir/test.cpp.i
-.PHONY : test.cpp.i
-
-test.s: test.cpp.s
-
-.PHONY : test.s
-
-# target to generate assembly for a file
-test.cpp.s:
-	$(MAKE) -f CMakeFiles/test_grid.dir/build.make CMakeFiles/test_grid.dir/test.cpp.s
-.PHONY : test.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... test_grid"
+	@echo "... edit_cache"
+	@echo "... test_pathfinding"
 	@echo "... read_map"
+	@echo "... astar_test.o"
+	@echo "... astar_test.i"
+	@echo "... astar_test.s"
 	@echo "... read_costmap.o"
 	@echo "... read_costmap.i"
 	@echo "... read_costmap.s"
-	@echo "... test.o"
-	@echo "... test.i"
-	@echo "... test.s"
 .PHONY : help
 
 

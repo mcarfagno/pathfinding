@@ -51,6 +51,6 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/test_grid.dir/DependInfo.cmake"
+  "CMakeFiles/test_pathfinding.dir/DependInfo.cmake"
   "CMakeFiles/read_map.dir/DependInfo.cmake"
   )
