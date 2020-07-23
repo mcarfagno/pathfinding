@@ -42,7 +42,7 @@ Mat compute_costmap(Mat& input_img)
   input_img = 255 - input_img; // revert to occ ~0 and free ~255
 
   /* L2 returns euclidean distance CV_32FC1 image.
-   where every element is eucludead pixel dist from */
+   where every element is pixel distance from non-free pixels */
   distanceTransform(input_img, dist, DIST_L2, 5);
   //imwrite( "images/distance_trasform.jpg", dist);
 
@@ -55,9 +55,9 @@ Mat compute_costmap(Mat& input_img)
     }
   }
 
-  double min, max;
-  cv::minMaxLoc(computed_costmap, &min, &max);
-  std::cout << min << " " << max << std::endl;
+  // double min, max;
+  // cv::minMaxLoc(computed_costmap, &min, &max);
+  // std::cout << min << " " << max << std::endl;
 
   // make a color version for printing
   //Mat coulored_costmap;
@@ -95,15 +95,15 @@ void open_pgn(GridWithWeights& grid, const char* location)
     // covert 0,255 to 0,1 occupancy range
     input_img.convertTo(occ_map,CV_32FC1, 1.0/255.0);
 
-    double min, max;
-    cv::minMaxLoc(occ_map, &min, &max);
-    std::cout << min << " " << max << std::endl;
+    // double min, max;
+    // cv::minMaxLoc(occ_map, &min, &max);
+    // std::cout << min << " " << max << std::endl;
 
     //unknown space value >= 0.196 -->OK
-    std::cout << (float)occ_map.at<float>(0,0) << std::endl;
+    //std::cout << (float)occ_map.at<float>(0,0) << std::endl;
 
     //free space value < 0.196 -->OK
-    std::cout << (float)occ_map.at<float>(300,300) << std::endl;
+    //std::cout << (float)occ_map.at<float>(300,300) << std::endl;
 
     // imshow("Occupancy Map", occ_map);
     // waitKey();
@@ -122,7 +122,7 @@ void open_pgn(GridWithWeights& grid, const char* location)
     the costmap is a matrix of 8bit unsigned chars elements
     that have to be parsed as integer value in 0-255
     */
-    float freespace_tresh = 254;
+    int freespace_tresh = 254;
     for(int i=0; i<cmap.rows; i++)
     {
       for(int j=0; j<cmap.cols; j++)
@@ -134,7 +134,7 @@ void open_pgn(GridWithWeights& grid, const char* location)
       }
     }
 
-    std::cout << grid.ALL_LOCATIONS.size() << std::endl;
+    //std::cout << grid.ALL_LOCATIONS.size() << std::endl;
 
     return;
 }

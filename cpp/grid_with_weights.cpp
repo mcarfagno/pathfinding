@@ -3,6 +3,7 @@
 #include <vector>
 #include <queue>
 #include <cmath>
+#include <iostream>
 
 struct GridLocation
 {
@@ -81,9 +82,13 @@ struct GridWithWeights
 
       for (GridLocation dir : DIRS)
       {
-        GridLocation next{id.x + dir.x, id.y + dir.y};
+
+        GridLocation next{id.x + dir.x, id.y + dir.y };
         if (in_bounds(next))
         {
+          auto element = ALL_LOCATIONS.find(next);
+          //std::cout<<element->w<<std::endl;
+          next.w = element->w;
           results.push_back(next);
         }
       }

@@ -5,7 +5,7 @@
 #include <algorithm> //std reverse
 
 #include "read_costmap.cpp"
-#include "astar_search.cpp"
+#include "dijkstra_search.cpp"
 
 void overlay(std::vector<GridLocation> &path)
 {
@@ -36,7 +36,8 @@ int main()
   open_pgn(grid, "./maps/test_map.pgm");
 
   // for (auto const& i: grid.ALL_LOCATIONS) {
-	// 	std::cout << (double)i.w << std::endl;
+	// 	// std::cout << (int)i.w << std::endl;
+  //   std::cout << grid.cost(i,i) << std::endl;
 	// }
 
   GridLocation start{200, 200};
@@ -46,7 +47,7 @@ int main()
 
   std::chrono::steady_clock::time_point begin = std::chrono::steady_clock::now();
 
-  a_star_search(grid, start, goal, came_from, cost_so_far);
+  dijkstra_search(grid, start, goal, came_from, cost_so_far);
   std::vector<GridLocation> path = reconstruct_path(start, goal, came_from);
 
   std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();

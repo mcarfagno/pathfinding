@@ -60,7 +60,7 @@ void dijkstra_search
 
     for (Location next : graph.neighbors(current))
     {
-      double new_cost = cost_so_far[current] + graph.cost(current, next);
+      double new_cost = cost_so_far[current] + 1.0*graph.cost(current, next);
       if (cost_so_far.find(next) == cost_so_far.end() || new_cost < cost_so_far[next])
       {
         cost_so_far[next] = new_cost;
