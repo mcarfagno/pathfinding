@@ -87,9 +87,9 @@ struct GridWithWeights
         if (in_bounds(next))
         {
           auto element = ALL_LOCATIONS.find(next);
-          //std::cout<<element->w<<std::endl;
-          next.w = element->w;
-          results.push_back(next);
+          /* */
+          //next.w = element->w;
+          results.push_back(*element);
         }
       }
 
