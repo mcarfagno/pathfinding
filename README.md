@@ -3,6 +3,11 @@ pathfinding
 ## About
 The idea is to use ROS occupancy grid maps to perform some path planning, for the sake of efficiciency I made everything in C++ and OpenCV.
 
+Algorithms Implemented:
+* Breadth First Search
+* Dijkstra
+* A* - Euclidean distance Heuristic
+
 | 1. Input Occupancy Map | 2. Pixel Distance Map | 
 |:-------------------------:|:-------------------------:|
 |![](pathfinding/images/input.jpg) | ![](pathfinding/images/distance_trasform_minmax.jpg) |
