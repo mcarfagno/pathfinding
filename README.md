@@ -3,13 +3,13 @@ pathfinding
 ## About
 The idea is to use ROS occupancy grid maps to perform some path planning, for the sake of efficiciency I made everything in C++ and OpenCV.
 
-| Input Occupancy Map | Pixel Distance Map | 
+| 1. Input Occupancy Map | 2. Pixel Distance Map | 
 |:-------------------------:|:-------------------------:|
-|![](pathfinding/images/input.jpg =400x) | ![](pathfinding/images/distance_trasform_minmax.jpg =400x)|
+|![](pathfinding/images/input.jpg) | ![](pathfinding/images/distance_trasform_minmax.jpg) |
+| **3. Cost Map** | **4. Path Map Overlay** |
+|![](pathfinding/images/costmap.jpg) | ![](pathfinding/images/path.jpg) |
 
-| Cost Map | Path Map Overlay | 
-|:-------------------------:|:-------------------------:|
-|![](pathfinding/images/costmap.jpg =400x) | ![](pathfinding/images/path.jpg =400x)|
+
 
 ## TODO
 * Convert the path from cell coordinats to cartesian using the map data from the **.yaml**
