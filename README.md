@@ -17,7 +17,7 @@ Algorithms Implemented:
 
 
 ## TODO
-* Convert the path from cell coordinats to cartesian using the map data from the **.yaml**
+* Convert the path from cell coordinatrs to cartesian using the map metadata from the **.yaml** files.
 
 ## References
 * [Red Blob Games](https://www.redblobgames.com/pathfinding/a-star/implementation.html#cplusplus)
